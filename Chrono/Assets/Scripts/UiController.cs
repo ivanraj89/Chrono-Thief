@@ -7,7 +7,7 @@ using TMPro;
 
 public class UiController : MonoBehaviour
 {
-    [SerializeField] public TextMeshProUGUI savedText;
+    [SerializeField] private TextMeshProUGUI savedText;
 
     private void Awake()
     {

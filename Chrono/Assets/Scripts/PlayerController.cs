@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public AudioClip slowdownSound;
-    [SerializeField] public GameObject enemyPrefab;
+     public AudioClip slowdownSound;
+     public GameObject enemyPrefab;
 
-    [SerializeField] private Enemy enemy;
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private AudioSource playerAudio;
+     private Enemy enemy;
+     private GameManager gameManager;
+     private AudioSource playerAudio;
 
     [SerializeField] public float timer;
     [SerializeField] private float time = 1.5f;

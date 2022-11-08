@@ -5,7 +5,7 @@ using System.IO;
 
 public class MainControl : MonoBehaviour
 {
-    [SerializeField] public static MainControl Instance;
+    public static MainControl Instance;
     [SerializeField] public int playerScore;
 
     //script is a new addition to update current game

@@ -7,10 +7,10 @@ using TMPro; //for canvas and text mesh pro
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] public List<GameObject> enemies;
-    [SerializeField] public GameObject player;
-    [SerializeField] public TextMeshProUGUI scoreText;
-
+     public List<GameObject> enemies;
+     public GameObject player;
+     public TextMeshProUGUI scoreText;
+     public int totalScore;
 
     [SerializeField] private float spawnRate = 2f;
     [SerializeField] private int score;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float zSpawnPos = 16;
     [SerializeField] private Vector3 prefabPos = new Vector3(0, 90, -90);
 
-    [SerializeField] public int totalScore;
+     
 
 
     private void Awake()
