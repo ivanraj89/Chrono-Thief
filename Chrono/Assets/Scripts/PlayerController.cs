@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public AudioClip slowdownSound;
-    public GameObject enemyPrefab;
+    [SerializeField] public AudioClip slowdownSound;
+    [SerializeField] public GameObject enemyPrefab;
 
-    private Enemy enemy;
-    private GameManager gameManager;
-    private AudioSource playerAudio;
+    [SerializeField] private Enemy enemy;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioSource playerAudio;
 
-    public float timer;
-    private float time = 1.5f;
-    private int score = 0;
-    public float speed = 5.0f;
+    [SerializeField] public float timer;
+    [SerializeField] private float time = 1.5f;
+    [SerializeField] private int score = 0;
+    [SerializeField] public float speed = 5.0f;
 
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         enemy = enemyPrefab.GetComponent<Enemy>();
         playerAudio = GetComponent<AudioSource>();
 
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); // not so good for performance but a simple game should be fine
 
     }
 
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) // doing input this way instead of Input.GetAxis removes inertia issues
         {
             transform.position += Vector3.right * speed * Time.unscaledDeltaTime;
         }
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) // updates score accordingly
     {
         if (other.CompareTag("Bullet"))
         {
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision) // destroy gameobject, load game over scene and save the score 
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SaveControl()
+    void SaveControl() // function for saving the total score 
     {
         MainControl.Instance.playerScore = gameManager.totalScore;
         MainControl.Instance.SaveScore();

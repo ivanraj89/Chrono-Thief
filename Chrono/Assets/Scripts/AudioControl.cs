@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AudioControl : MonoBehaviour
 {
-    private void Awake()
+    private void Awake() 
     {
-        DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(transform.gameObject); // keep playing music on loop by not destroying object
     }
     // Start is called before the first frame update
     void Start()

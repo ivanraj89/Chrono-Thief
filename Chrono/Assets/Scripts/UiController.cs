@@ -7,7 +7,7 @@ using TMPro;
 
 public class UiController : MonoBehaviour
 {
-    public TextMeshProUGUI savedText;
+    [SerializeField] public TextMeshProUGUI savedText;
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class UiController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void SceneCheck()
+    public void SceneCheck() // check to see if current scene is game over scene and if it is then load saved score into the text field
     {
         Scene currenScene = SceneManager.GetActiveScene();
 

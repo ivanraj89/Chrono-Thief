@@ -5,12 +5,11 @@ using System.IO;
 
 public class MainControl : MonoBehaviour
 {
-    public static MainControl Instance;
-    public int playerScore;
+    [SerializeField] public static MainControl Instance;
+    [SerializeField] public int playerScore;
 
-    // Start is called before the first frame update
-
-    void Awake()
+    //script is a new addition to update current game
+    void Awake() // using singleton design pattern
     {
         if (Instance != null)
         {
@@ -22,7 +21,7 @@ public class MainControl : MonoBehaviour
     [System.Serializable]
     class SaveData
     {
-        public int playerScore; 
+        public int playerScore; // the only data persistence needed in this game 
     }
     public void SaveScore()
     {
